@@ -14,7 +14,7 @@ import java.util.Timer;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class HorariosDB {
 

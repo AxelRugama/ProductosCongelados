@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class PedidosDB {
 

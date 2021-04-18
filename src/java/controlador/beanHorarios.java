@@ -24,7 +24,7 @@ import javax.faces.model.SelectItem;
 
 /**
  *
- * @author Villegas716
+ * @author GBD
  */
 @Named(value = "beanHorarios")
 @SessionScoped

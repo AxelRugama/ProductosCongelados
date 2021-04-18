@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class Usuario {
     String ident;

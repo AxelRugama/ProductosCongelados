@@ -3,7 +3,7 @@ package Model;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class LineaDetalle {
     int idLinea;

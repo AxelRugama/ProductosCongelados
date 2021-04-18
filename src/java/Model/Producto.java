@@ -3,7 +3,7 @@ package Model;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class Producto {
      int idProducto;

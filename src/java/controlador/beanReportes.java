@@ -13,7 +13,7 @@ import org.primefaces.model.chart.PieChartModel;
 
 /**
  *
- * @author Villegas716
+ * @author GBD
  */
 @Named(value = "beanReportes")
 @SessionScoped

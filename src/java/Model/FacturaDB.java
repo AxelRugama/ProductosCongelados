@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class FacturaDB {
     private AccesoDatos accesoDatos = new AccesoDatos();

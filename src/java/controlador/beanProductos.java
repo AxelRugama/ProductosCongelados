@@ -19,7 +19,7 @@ import org.primefaces.PrimeFaces;
 
 /**
  *
- * @author Villegas716
+ * @author GBD
  */
 @Named(value = "beanProductos")
 @SessionScoped

@@ -19,7 +19,7 @@ import javax.naming.NamingException;
 
 /**
  *
- * @author Villegas716
+ * @author GBD
  */
 @Named(value = "beanUsuarios")
 @SessionScoped

@@ -16,7 +16,7 @@ import javax.naming.NamingException;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class ProductoDB {
 

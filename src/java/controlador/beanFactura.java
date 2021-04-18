@@ -18,7 +18,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Villegas716
+ * @author GBD
  */
 @Named(value = "beanFactura")
 @SessionScoped

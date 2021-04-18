@@ -21,7 +21,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Villegas716
+ * @author GBD
  */
 @Named(value = "beanPedidos")
 @SessionScoped

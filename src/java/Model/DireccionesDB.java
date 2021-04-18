@@ -14,7 +14,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Villegas716
+ * @author axelj
  */
 public class DireccionesDB {
     private AccesoDatos accesoDatos = new AccesoDatos();
