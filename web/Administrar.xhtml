@@ -56,18 +56,15 @@
                         <h5>Modificar Direccion</h5>
                         <h:outputText value="Direccion: "/>
                         <h:inputText class="inputTodos" value="#{beanDirecciones.direcObject.direccion}"/>
-                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
-                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
-                        </h:selectOneMenu>
-                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
-                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
-                        </h:selectOneMenu>
-                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
-                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
-                        </h:selectOneMenu>
-                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
-                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
-                        </h:selectOneMenu>
+                      <td>Provincias:</td>
+                           <td>
+                    <h:selectOneMenu label="pro" value="#{beanProvincias.cod_provincia}" id="pro">
+                        <f:selectItems value="#{beanProvincias.listaPro}"/>
+                        <f:ajax event="change" listener="#{beanProvincias.getListaCan()}" render="can" execute="@this"/>
+                        <f:ajax event="change" listener="#{beanProvincias.getListaDis()}" render="dis" execute="@this"/>
+                        <f:ajax event="change" listener="#{beanProvincias.getListaBar()}" render="bar" execute="@this"/>
+                    </h:selectOneMenu>
+                    <br></br>
                         <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanDirecciones.GuardarCambios}"/>
                         <br></br>
                         <br></br> 
