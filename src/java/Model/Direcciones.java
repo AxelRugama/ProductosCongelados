@@ -3,12 +3,13 @@ package Model;
 
 /**
  *
- * @author axelj
+ * @author gbd
  */
 public class Direcciones {
     String idUsuario;
     String direccion;
     int idDireccion;
+    
     int estado;
 
     public Direcciones(String idUsuario, String direccion, int idDireccion, int estado) {
