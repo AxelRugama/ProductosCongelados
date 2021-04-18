@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registro</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+        <link rel='stylesheet' type='text/css' media='screen' href='CSS.css'></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+        <link rel="icon" href="img/Floppy (1).png"></link>
+    </h:head>
+    <h:body id="background">
+        <div id="mainContainer" class="container col-md-10">
+
+        <div class="text-center" id="pageHeader">  
+               <img src="img/Floppy (1).png" alt="logo"></img>   
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light col-md-12" id="navbar">
+            
+            </nav>
+
+
+        <div class="row" id="pageContent">
+            <div class="col" id="login">
+                <h3>Digite los Datos</h3>
+                <h:form>
+                <br></br>
+                <h6>Nombre: <h:inputText class="inputTodos" value="#{beanUsuarios.nombre}"></h:inputText></h6>
+                
+                <h6>Apellidos:  <h:inputText class="inputTodos" value="#{beanUsuarios.apellido}"></h:inputText></h6>
+
+                <h6>Correo Electronico:  <h:inputText class="inputTodos" value="#{beanUsuarios.ident}"></h:inputText></h6>
+                
+                <h6>Contraseña:  <h:inputSecret class="inputTodos" value="#{beanUsuarios.pass}"></h:inputSecret></h6>
+
+                <h6>Repita Contraseña:  <h:inputSecret class="inputTodos" value="#{beanUsuarios.pass2}"></h:inputSecret></h6>
+                
+                <strong><h:outputText id="error" value="#{beanUsuarios.mensaje}"></h:outputText></strong>
+                    <br></br>
+                    <h:commandButton class="buttonTodos" value="Continuar" action="#{beanUsuarios.insertarUsuario()}"></h:commandButton>
+                    <h:commandButton class="buttonTodos" value="Cancelar" action="#{beanUsuarios.Cancelar()}"></h:commandButton>
+                    </h:form>
+        </div>
+        </div>
+
+             <footer id="footer">
+                <p>Floppy ©</p>
+            </footer>
+    </div>
+    </h:body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
+

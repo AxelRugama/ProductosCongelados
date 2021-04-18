@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Floppy</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+        <link rel='stylesheet' type='text/css' media='screen' href='CSS.css'></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+        <link rel="icon" href="img/Floppy (1).png"></link>
+    </h:head>
+    <h:body id="background">
+        <div id="mainContainer" class="container col-md-10">
+           
+            
+            <div class="text-center" id="pageHeaderAdmin">
+                <img src="img/Floppy.png" width="200px" height="200px" alt="logo"></img>  
+            </div>
+
+             
+            <nav class="navbar navbar-expand-lg navbar-light col-md-12" id="navbar">
+                
+            </nav>
+                     
+            <div class="row col-md-12" id="pageContent">
+                <!--Aqui añadir los nuevos el contenido de la pagina-->
+                <div class="col-md-12">
+                    <h:form style="font-size: 20px">
+                        <br></br>
+                        <h:outputText value="Cliente: "/>
+                        <h:inputText class="inputTodos" disabled="true" style="margin-left: 10px; background: transparent; width: 250px; text-align: center;" value="#{beanLogin.id}"/> 
+                        <h:commandButton class="buttonTodos" style="margin-left: 1000px;" action="Pedidos.xhtml" value="Volver"/>                   
+                    </h:form>
+                </div>
+                <div class="col-md-4 col" id="administrar">
+                    <h:form> 
+                        <br></br>
+                        <h3>Direcciones de Entrega</h3>
+                        <br></br>
+                        <h:outputText value="Direcciones: "/>
+                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
+                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
+                        </h:selectOneMenu>
+                        <br></br>
+                        <h:commandButton class="buttonAdmin" value="Modificar" action="#{beanDirecciones.ModificarDireccion}"/>
+                        <h:commandButton class="buttonAdmin" value="Eliminar" action="#{beanDirecciones.EliminarDireccion}"/>
+                        <br/>
+                        <br/>
+                        <h5><strong><h:outputText value="#{beanDirecciones.errorDireccion}"/></strong></h5>
+                        <br/>
+                        <br/>
+                        <h5>Modificar Direccion</h5>
+                        <h:outputText value="Direccion: "/>
+                        <h:inputText class="inputTodos" value="#{beanDirecciones.direcObject.direccion}"/>
+                        <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanDirecciones.GuardarCambios}"/>
+                        <br></br>
+                        <br></br> 
+                        <h5>Agregar Nueva Direccion</h5>
+                        <h:outputText value="Direccion Exacta: "/>
+                        <h:inputText class="inputTodos" value="#{beanDirecciones.direccion}"/>
+                        <h:commandButton class="buttonAdmin" value="Agregar" action="#{beanDirecciones.agregarDireccion(beanLogin.id)}"/>
+                        <br></br>
+                        <br></br> 
+                        <h5>Activar Direcciones</h5>
+                        <h:outputText value="Direcciones Inactivas: "/>
+                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDirecInactiva}">
+                            <f:selectItems value="#{beanDirecciones.ListaDireccionesI(beanLogin.id)}" />
+                        </h:selectOneMenu>
+                        <h:commandButton class="buttonAdmin" value="Activar" action="#{beanDirecciones.ActivarDireccion}"></h:commandButton>
+                    </h:form>    
+                </div>
+                
+                <div class="col-md-4 col" id="administrar">
+                    <h:form>
+                    <br></br>
+                    <h3>Horarios de Entrega</h3>
+                    <br></br>
+                    <h:outputText value="Horarios: "/>
+                    <h:selectOneMenu class="inputTodos" value="#{beanHorarios.idHorario}">
+                        <f:selectItems value="#{beanHorarios.ListaHorarios(beanLogin.id)}" />
+                    </h:selectOneMenu>
+                    <br></br>
+                    <h:commandButton class="buttonAdmin" value="Modificar" action="#{beanHorarios.ModificarHorario()}"/>
+                    <h:commandButton class="buttonAdmin" value="Eliminar" action="#{beanHorarios.EliminarHorario()}"/>
+                        <br/>
+                        <br/>
+                        <h5><strong><h:outputText value="#{beanHorarios.error}"/></strong></h5>
+                        <br/>
+                        <br/>
+                        <h5>Modificar Horario</h5>
+                        <h:outputText value="Horario: "/>
+                        <h:inputText class="inputTodos" value="#{beanHorarios.horarioObject.horario}"/>
+                        <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanHorarios.GuardarCambios()}"/>
+                        <br></br>
+                        <br></br> 
+                        <h5>Agregar Nuevo Horario</h5>
+                        <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+                        <h:panelGrid columns="3" cellpadding="2"> 
+                            <h:outputText value="Horario: "/>
+                            <p:calendar id="time" timeOnly="true" value="#{beanHorarios.horarioT}" pattern="HH:mm a" style="font-size: 12px;"/>
+                            <h:commandButton class="buttonAdmin" value="Agregar" action="#{beanHorarios.AgregarHorario(beanLogin.id)}"/>
+                        </h:panelGrid>
+                        <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+                            <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                                <h:outputText value="Time:" />
+                                <h:outputText value="#{beanHorarios.horarioT}">
+                                    <f:convertDateTime pattern="HH:mm a" />
+                                </h:outputText>
+                            </p:panelGrid>
+                        </p:dialog>
+                    </h:form>
+                </div>
+            </div>
+       
+
+            <footer id="footer">
+                <p>Floppy ©</p>
+            </footer>
+        </div>
+    </h:body>
+
+   <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+</html>
+

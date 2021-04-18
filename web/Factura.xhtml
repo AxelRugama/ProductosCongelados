@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facturazion</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+        <link rel='stylesheet' type='text/css' media='screen' href='CSS.css'></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+        <link rel="icon" href="img/Floppy (1).png"></link>
+    </h:head>
+    <h:body id="background">
+        <div id="mainContainer" class="container col-md-10">
+            <nav class="navbar navbar-expand-lg navbar-light col-md-12" id="navbar">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <h:form>
+                                <h:commandLink class="nav-link" action="#{beanLogin.getInicio}" value="Inicio"><span class="sr-only">(current)</span></h:commandLink>
+                            </h:form>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Pedidos.xhtml">Pedidos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="img/user-nav.png"></img>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <h:outputLabel class="dropdown-item" id="nombre" value="#{beanLogin.nombre}"></h:outputLabel>
+                                <h:form>
+                                    <h:commandLink class="dropdown-item" value="#{beanLogin.inicioSesion}" action="#{beanLogin.getIniciarSesion}"></h:commandLink>
+                                </h:form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <div class="row" id="pageContent">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col col-md-10">
+                    <br/>
+                    <h2 style="text-align: center; font-size: 50px; color: #6d1716;">Pedido Exitoso</h2>
+                    <br/>
+                    <h:form>
+                        <p:dataTable var="fac" value="#{beanFactura.listFac}">
+                            <f:facet name="header">
+                                Factura
+                            </f:facet>
+
+                            <p:columnGroup type="header">
+                                <p:row>
+                                    <p:column rowspan="1" colspan="1" headerText="ID" />
+                                    <p:column rowspan="1" colspan="1" headerText="Usuario" />
+                                    <p:column rowspan="1" colspan="1" headerText="Fecha" />
+                                </p:row>
+                            </p:columnGroup>
+                            <p:column>
+                                <h:outputText value="#{fac.idFactura}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{fac.idUsuario}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{fac.fecha}" />
+                            </p:column>
+                        </p:dataTable>
+                        <p:dataTable var="linea" value="#{beanFactura.listaLineas}">
+                            <f:facet name="header">
+                                Detalle Pedido
+                            </f:facet>
+                            <p:columnGroup type="header">
+                                <p:row>
+                                    <p:column rowspan="1" colspan="1" headerText="Linea"/>
+                                    <p:column rowspan="1" colspan="1" headerText="Producto"/>
+                                    <p:column rowspan="1" colspan="1" headerText="Cantidad"/>
+                                    <p:column rowspan="1" colspan="1" headerText="Precio"/>
+                                </p:row>
+                            </p:columnGroup>
+                            <p:column>
+                                <h:outputText value="#{linea.idLinea}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{linea.descripcionProducto}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{linea.cantidadProducto}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="₡ #{linea.precioProducto}" />
+                            </p:column>
+                            <p:columnGroup type="footer">
+                                <p:row>
+                                    <p:column colspan="3" footerText="Descuento:" style="text-align:right"/>
+                                    <p:column footerText="₡ #{beanFactura.factura.descuento}"/>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="3" footerText="IVA:" style="text-align:right"/>
+                                    <p:column footerText="₡ #{beanFactura.factura.impuestoIVA}"/>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="3" footerText="Total:" style="text-align:right"/>
+                                    <p:column footerText="₡ #{beanFactura.factura.precioTotal}"/>
+                                </p:row>
+                            </p:columnGroup>
+                        </p:dataTable>
+                        <p:dataTable var="factura" value="#{beanFactura.listFac}">
+                            <f:facet name="header">
+                                Detalle Entrega
+                            </f:facet>
+                            <p:columnGroup type="header">
+                                <p:row>
+                                    <p:column rowspan="1" colspan="1" headerText="Direccion"/>
+                                    <p:column rowspan="1" colspan="1" headerText="Horario"/>
+                                    <p:column rowspan="1" colspan="1" headerText="Tipo Pago"/>
+                                </p:row>
+                            </p:columnGroup>
+                            <p:column>
+                                <h:outputText value="#{beanFactura.direccionEntrega}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{beanFactura.horarioEntrega}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{factura.tipoPago}" />
+                            </p:column>
+                            <f:facet name="footer">
+                                !Gracias por Preferirnos!
+                            </f:facet>
+                        </p:dataTable>
+                    </h:form>
+                    <br/>
+                    <br/>
+                </div>
+
+                <div class="col-md-1">
+
+                </div>
+            </div>
+
+            <footer id="footer">
+                <p>Floppy ©</p>
+            </footer>
+        </div>
+    </h:body>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>

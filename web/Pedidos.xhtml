@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Realizar Pedido</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+        <link rel='stylesheet' type='text/css' media='screen' href='CSS.css'></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+        <link rel="icon" href="img/Floppy (1).png"></link>
+    </h:head>
+    <h:body id="background">
+
+        <div class="col-md-12">
+            <br/>
+            <nav class="navbar navbar-expand-lg navbar-light col-md-12" id="navbar">
+                
+            </nav>
+
+            <div class="row col-md-12" id="pageContent">
+                <div class="col-md-7">
+                    <h:form id="form">
+                        <br/>
+                        <p:dataGrid var="pro" value="#{beanProductos.listaProductosActivos}" columns="2" layout="grid"
+                                    rows="4" paginator="true" paginatorPosition="top" id="prod"
+                                    paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink}">
+
+                            <f:facet name="header">
+                                Ordene Su Pedido
+                            </f:facet>
+                            <p:panel header="#{pro.descripcion}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%">
+                                    <p:graphicImage url="#{pro.imagen}" width="200px" height="200px"/> 
+                                    <h:outputText value="Precio: ₡#{pro.precio}"/>
+                                    <h:outputText value="Cantidad Minima: #{pro.cantidadMinima}"/>
+                                    <p:commandButton onclick="PF('dialog').show();" value="Cantidad"/>
+                                    <h:commandLink action="#{beanPedidos.AgregarLinea(pro.idProducto, pro.precio)}">
+                                        <img src="img/add.png" width="40px" height="40px"/>
+                                    </h:commandLink>
+                                    <p:dialog widgetVar="dialog" modal="true" showEffect="slide" hideEffect="slide" header="Digite la cantidad">
+                                        <h:outputText value="Cantidad: "/>
+                                        <h:inputText value="#{beanPedidos.cantidadProducto}"/>
+                                        <br/>
+                                        <br/>
+                                        <p:commandButton onclick="PF('dialog').hide();" value="Aceptar"/>
+                                    </p:dialog>
+                                </h:panelGrid>
+                            </p:panel>
+
+                        </p:dataGrid>
+                        <br/>
+                    </h:form>
+                </div>
+
+                <div class="col-md-5" id='factura'>
+                    <h:form>
+                        <br></br>
+                        <h:outputLabel style="font-size: 25px" value="Fecha: #{beanPedidos.fechaDB}"/>
+                        <h:outputLabel style="font-size: 25px; padding-left: 50px;" value="Cliente: #{beanLogin.nombre}"/>
+                        <br></br>
+                        <br/>
+                        <h3 style="text-align: center">Pedido</h3>
+                        <h:dataTable class="table table-striped data-table" style="font-size: 20px;" value="#{beanPedidos.listaLineas}" var="linea">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Descripcion"></h:outputText>
+                                </f:facet>
+                                <h:outputText value="#{linea.descripcionProducto}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Cantidad"></h:outputText>
+                                </f:facet>
+                                <h:outputText value="#{linea.cantidadProducto}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Precio"></h:outputText>
+                                </f:facet>
+                                <h:outputText value="#{linea.precioProducto}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <h:commandLink  action="#{beanPedidos.BorrarLinea(linea.idProducto)}">
+                                    <img src="img/quitar.png" width="30px" height="30px"/>
+                                </h:commandLink>
+                            </h:column>
+                            <f:facet name="footer">
+                                <h:outputText style="text-align: right;" value="SubTotal: ₡#{beanPedidos.subTotal}"></h:outputText>
+                            </f:facet>
+                        </h:dataTable>
+                        <strong><h:outputText style="font-size: 20px" value="#{beanPedidos.error}"/></strong>
+                        <br></br>
+                        <br/>
+                        <h:outputLabel style="font-size: 19px" title="Se aplica descuento, si el subTotal es mayor a 10 000" value="Descuento: ₡#{beanPedidos.descDB}"/><br/>
+                        <h:outputLabel style="font-size: 19px" value="IVA: ₡#{beanPedidos.ivaDB}"/><br/>
+                        <strong><h:outputLabel style="font-size: 19px; font-style: inherit;" value="Total: ₡#{beanPedidos.precioTotal}"/></strong>
+                        <br/>
+                        <br/>
+                        <h:outputText style="font-size: 19px" value="Direcciones de Entrega: "/>
+                        <p:selectOneMenu value="#{beanPedidos.idDireccion}">
+                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}"/>
+                        </p:selectOneMenu>
+                        <br/>
+                        <br/>
+                        <h:outputText style="font-size: 19px" value="Horarios de Entrega: "/>
+                        <p:selectOneMenu value="#{beanPedidos.idHorario}">
+                            <f:selectItems value="#{beanHorarios.ListaHorarios(beanLogin.id)}"/>
+                        </p:selectOneMenu>
+                        <p:commandButton value="Administrar" action="Administrar.xhtml" style="margin-left:230px; color: #6d1716;"/>
+                        <br/>
+                        <br/>
+                        <h:panelGrid columns="2" style="margin-bottom:10px; font-size: 15px" cellpadding="5">
+                        <h:outputText value="Tipo de Pago: " style="font-size: 19px"/>
+                        <p:selectOneButton value="#{beanPedidos.tipoPago}">
+                            <f:selectItem itemValue="Efectivo" itemLabel="Efectivo"/>
+                            <f:selectItem itemValue="Cuenta Por Cobrar" itemLabel="Cuenta Por Cobrar"/>
+                        </p:selectOneButton>
+                        </h:panelGrid>
+                        <br/>
+                        <br/>
+                        <strong><h:outputText style="font-size: 20px" value="#{beanPedidos.alerta}"/></strong>
+                        <br/>
+                        <br/>
+                        <div style="text-align: center">
+                        <h:commandButton class="buttonTodos" value="Facturar" actionListener="#{beanPedidos.Facturar(beanLogin.id)}" action="#{beanFactura.CargarFactura(beanPedidos.idFacturaMostrar,beanPedidos.alertaMostrar)}"/>
+                        <h:commandButton class="buttonTodos" value="Cancerlar" actionListener="#{beanPedidos.Cancelar()}" action="#{beanLogin.getInicio()}"/>
+                        </div>
+                    </h:form>
+                </div>
+                
+            </div>
+
+            <footer id="footer">
+                <p>Floppy ©</p>
+            </footer>
+        </div>
+    </h:body>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
+
+

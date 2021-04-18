@@ -1,0 +1,327 @@
+@font-face {
+  font-family: sunday;
+  src: url(font/Acme/Acme-Regular.ttf);
+}
+
+
+/*-------------------------------------Background & MainContainer------------------------------------------- */
+
+#background {
+    background-color: #913231;
+    background-image: url(img/dark-wood-brown-texture-wooden-floor-773414-wallhere.com.jpg);
+    font-family: sunday;
+}
+#mainContainer {
+    background-color: rgb(197, 114, 31);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.66);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.66);
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.66)
+}
+#pageContent {
+    background-color: #FFB627;
+    margin: auto;
+}
+#divProducto{
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 202, 95, 0.514);
+    border-radius: 10px;
+    transition: box-shadow .3s;
+}
+
+#nombrePro{
+    text-align: center;
+}
+#precioPro{
+    padding: auto;
+    text-align: center;
+}
+
+#pageContent #divProducto:hover{
+    color: grey;
+    -webkit-box-shadow: 9px 10px 15px -6px rgba(0,0,0,0.62);
+    -moz-box-shadow: 9px 10px 15px -6px rgba(0,0,0,0.62);
+    box-shadow: 9px 10px 15px -6px rgba(0,0,0,0.62);
+}
+#divProducto a{
+    text-decoration: none;
+    color: black;
+}
+.imagenProducto{
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+   
+}
+
+/*-------------------------------------Background & MainContainer------------------------------------------- */
+
+
+/*-------------------------------------Nav------------------------------------------- */
+#navbar {
+    background-color: #6d1716;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: sunday;
+    font-size: 20px;
+}
+#navbar a {
+    color: #bb3535;  
+}
+#navbar .dropdown-menu{
+    background-color: #6d1716;
+}
+#navbar .dropdown-menu :hover{
+    color: white;
+    background-color: #6d1716;
+}
+#navbar :hover{
+    color: white;
+}
+#navbar img {
+    height: 50px;
+    width: 50px;
+}
+/*-------------------------------------Nav------------------------------------------- */
+
+
+
+
+/*-------------------------------------Footer------------------------------------------- */
+#footer{
+    background-color: #6d1716;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius: 10px;
+    font-family: sunday;
+    font-size: 20px;
+    text-align: center;
+    color: #bb3535;  
+}
+/*-------------------------------------Footer------------------------------------------- */
+
+
+
+
+/*-------------------------------------PageHeader------------------------------------------- */
+#pageHeader {
+    background-color: rgb(197, 114, 31);
+}
+
+#pageHeaderAdmin {
+    background-color: rgb(197, 114, 31);
+}
+
+#pageHeader img {
+    height: 300px;
+    width: 300px;
+}
+/*-------------------------------------PageHeader------------------------------------------- */
+
+
+/*-------------------------------------Login------------------------------------------- */
+#login {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#login input{
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/*-------------------------------------Login------------------------------------------- */
+
+/*-------------------------------------DataProductos------------------------------------------- */
+#productos{
+    color: green!important;
+}
+.ui-datagrid{
+    color: green!important;
+}
+/*-------------------------------------DataProductos------------------------------------------- */
+
+
+/*-------------------------------------Pedidos------------------------------------------- */
+#factura{
+    background-color: rgba(255, 202, 95, 0.514);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+/*-------------------------------------Pedidos------------------------------------------- */
+
+/*-------------------------------------Admin------------------------------------------- */
+#administrar{
+    margin: auto;
+    background-color: rgba(255, 202, 95, 0.514);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+        
+}
+
+
+
+/*-------------------------------------Admin------------------------------------------- */
+
+
+
+
+/*-----------------------------------Botones--------------------------------------------*/
+.buttonTodos{
+    outline: none !important;
+    margin: 15px;
+    background: #FFB627;
+    font-size: 16px;
+    text-decoration: none;
+    color:#6d1716 ;
+    border: 2px solid #6d1716;
+    padding: 5px 30px 5px 30px;
+    border-radius: 7px;
+    transition: background .3s, color .3s;
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: 0 4px #920E0E;
+}
+.buttonTodos:hover{
+    background: #6d1716;
+    color: #FFB627;
+}
+.buttonTodos:active{
+    box-shadow: 0 0 #920E0E;
+    top: 4px !important;
+}
+
+/*Pagina Administrar y Despacho*/   /*Color #920E0E box-shadow*/
+.buttonAdmin{
+    outline: none !important;
+    margin: 15px;
+    background: #FFB627;
+    font-size: 16px;
+    text-decoration: none;
+    color:#6d1716 ;
+    border: 2px solid #6d1716;
+    padding: 5px 20px 5px 20px;
+    border-radius: 7px;
+    transition: background .3s, color .3s;
+    position: relative;
+    box-shadow: 0 3px #920E0E;
+}
+.buttonAdmin:hover{
+    background: #6d1716;
+    color: #FFB627;
+}
+.buttonAdmin:active{
+    box-shadow: 0 0 #920E0E;
+    top: 3px !important;
+}
+/*Pagina de Registro*/
+.buttonR{
+    outline: none !important;
+    margin: 15px;
+    background: #6d1716;
+    color: #FFB627;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid #6d1716;
+    padding: 5px 105px 5px 105px;
+    border-radius: 30px !important;
+    position: relative;
+}
+.buttonR:hover{
+    transform:scale(1.1) !important;
+    -ms-transform:scale(1.2); 
+    -moz-transform:scale(1.2); 
+    -webkit-transform:scale(1.2); 
+    -o-transform:scale(1.2); 
+}
+
+/*-----------------------------------Botones--------------------------------------------*/
+
+/*-----------------------------------Inputs--------------------------------------------*/
+.inputTodos{
+    outline: none;
+    color: black;
+    background: white;
+    width: 200px;
+    border: 2px solid #6d1716;
+    border-radius: 2px; 
+    margin: 5px;
+    padding: 4px;
+    transition: .3s;
+}
+.inputTodos:focus{
+    border-color: #6d1716;
+    box-shadow: 0 0 6px 0 #6d1716;
+}
+
+
+
+
+#nombre{
+    color: white;
+}
+
+.buttonU{
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#tabla-usuario{
+    text-align: center;
+}
+
+.table-productos {
+    display: list-item;
+
+}
+
+#botonPedido{
+    border-radius: 5px;
+    margin: 10px;
+}
+#pedido{
+    align-content: center;
+    text-align: center;
+    background-color: rgba(230, 230, 230, 0.753);
+    border-radius: 10px;
+    margin: 10px;
+    height: auto;
+}
+#pedido input{
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#itemsPedido{
+    background-color: rgba(202, 202, 202, 0.685);
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#itemPedido{
+    background-color: rgba(226, 226, 226, 0.911);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+}
+#itemPedido img{
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    float: left;
+    margin: 10px;
+}
