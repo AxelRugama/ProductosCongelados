@@ -56,6 +56,18 @@
                         <h5>Modificar Direccion</h5>
                         <h:outputText value="Direccion: "/>
                         <h:inputText class="inputTodos" value="#{beanDirecciones.direcObject.direccion}"/>
+                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
+                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
+                        </h:selectOneMenu>
+                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
+                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
+                        </h:selectOneMenu>
+                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
+                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
+                        </h:selectOneMenu>
+                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDireccion}">
+                            <f:selectItems value="#{beanDirecciones.ListaDirecciones(beanLogin.id)}" />
+                        </h:selectOneMenu>
                         <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanDirecciones.GuardarCambios}"/>
                         <br></br>
                         <br></br> 
