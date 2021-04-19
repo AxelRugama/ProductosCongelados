@@ -3,9 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Floppy</title>
+        <title>Direcciones De Entrega</title>
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
@@ -14,18 +15,26 @@
         <link rel="icon" href="img/Floppy (1).png"></link>
     </h:head>
     <h:body id="background">
+        
+       
+        
         <div id="mainContainer" class="container col-md-10">
-           
-            
-            <div class="text-center" id="pageHeaderAdmin">
-                <img src="img/Floppy.png" width="200px" height="200px" alt="logo"></img>  
+
+
+         <div class="text-center" id="pageHeaderAdmin">
+                <img src="img/LogoSipao.PNG" width="200px" height="200px" alt="logo"></img>  
+               
             </div>
 
-             
-            <nav class="navbar navbar-expand-lg navbar-light col-md-12" id="navbar">
-                
-            </nav>
-                     
+   
+                <nav class="navbar navbar-expand-lg navbar-light col-md-12" id="navbar">
+   
+               </nav>
+ 
+            
+
+
+
             <div class="row col-md-12" id="pageContent">
                 <!--Aqui añadir los nuevos el contenido de la pagina-->
                 <div class="col-md-12">
@@ -56,15 +65,61 @@
                         <h5>Modificar Direccion</h5>
                         <h:outputText value="Direccion: "/>
                         <h:inputText class="inputTodos" value="#{beanDirecciones.direcObject.direccion}"/>
-                      <td>Provincias:</td>
-                           <td>
-                    <h:selectOneMenu label="pro" value="#{beanProvincias.cod_provincia}" id="pro">
-                        <f:selectItems value="#{beanProvincias.listaPro}"/>
-                        <f:ajax event="change" listener="#{beanProvincias.getListaCan()}" render="can" execute="@this"/>
-                        <f:ajax event="change" listener="#{beanProvincias.getListaDis()}" render="dis" execute="@this"/>
-                        <f:ajax event="change" listener="#{beanProvincias.getListaBar()}" render="bar" execute="@this"/>
-                    </h:selectOneMenu>
-                    <br></br>
+
+                        <br></br>
+
+                        <td>Provincias:</td>
+                        <td>
+                            <h:selectOneMenu label="pro" value="#{beanProvincias.cod_provincia}" id="pro">
+                                <f:selectItems value="#{beanProvincias.listaPro}"/>
+                                <f:ajax event="change" listener="#{beanProvincias.getListaCan()}" render="can" execute="@this"/>
+                                <f:ajax event="change" listener="#{beanProvincias.getListaDis()}" render="dis" execute="@this"/>
+                                <f:ajax event="change" listener="#{beanProvincias.getListaBar()}" render="bar" execute="@this"/>
+                            </h:selectOneMenu>
+                            <br></br>
+                            <br></br>
+
+
+                        </td>
+
+
+                        <tr>
+                            <td>Cantones:</td>
+                            <td>
+                                <h:selectOneMenu label="can" value="#{beanProvincias.cod_canton}" id="can">
+                                    <f:selectItems value="#{beanProvincias.listaCan}"/>
+                                    <f:ajax event="change" listener="#{beanProvincias.getListaDis()}" render="dis" execute="@this"/>
+                                </h:selectOneMenu>
+                                <br></br>
+                                <br></br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Distritos:</td>
+                            <td>
+                                <h:selectOneMenu label="dis" value="#{beanProvincias.cod_distrito}" id="dis">
+                                    <f:selectItems value="#{beanProvincias.listaDis}"/>
+                                    <f:ajax event="change" listener="#{beanProvincias.getListaBar()}" render="bar" execute="@this"/>
+                                </h:selectOneMenu>
+                                <br></br>
+                                <br></br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Barrios:</td>
+                            <td>
+                                <h:selectOneMenu label="dis" value="#{beanProvincias.cod_barrio}" id="bar">
+                                    <f:selectItems value="#{beanProvincias.listaBar}"/>
+                                </h:selectOneMenu>
+                                <br></br>
+                                <br></br>
+                            </td>
+                        </tr>
+
+
+
+
+
                         <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanDirecciones.GuardarCambios}"/>
                         <br></br>
                         <br></br> 
@@ -82,19 +137,19 @@
                         <h:commandButton class="buttonAdmin" value="Activar" action="#{beanDirecciones.ActivarDireccion}"></h:commandButton>
                     </h:form>    
                 </div>
-                
+
                 <div class="col-md-4 col" id="administrar">
                     <h:form>
-                    <br></br>
-                    <h3>Horarios de Entrega</h3>
-                    <br></br>
-                    <h:outputText value="Horarios: "/>
-                    <h:selectOneMenu class="inputTodos" value="#{beanHorarios.idHorario}">
-                        <f:selectItems value="#{beanHorarios.ListaHorarios(beanLogin.id)}" />
-                    </h:selectOneMenu>
-                    <br></br>
-                    <h:commandButton class="buttonAdmin" value="Modificar" action="#{beanHorarios.ModificarHorario()}"/>
-                    <h:commandButton class="buttonAdmin" value="Eliminar" action="#{beanHorarios.EliminarHorario()}"/>
+                        <br></br>
+                        <h3>Horarios de Entrega</h3>
+                        <br></br>
+                        <h:outputText value="Horarios: "/>
+                        <h:selectOneMenu class="inputTodos" value="#{beanHorarios.idHorario}">
+                            <f:selectItems value="#{beanHorarios.ListaHorarios(beanLogin.id)}" />
+                        </h:selectOneMenu>
+                        <br></br>
+                        <h:commandButton class="buttonAdmin" value="Modificar" action="#{beanHorarios.ModificarHorario()}"/>
+                        <h:commandButton class="buttonAdmin" value="Eliminar" action="#{beanHorarios.EliminarHorario()}"/>
                         <br/>
                         <br/>
                         <h5><strong><h:outputText value="#{beanHorarios.error}"/></strong></h5>
@@ -124,18 +179,18 @@
                     </h:form>
                 </div>
             </div>
-       
+
 
             <footer id="footer">
-                <p>Floppy ©</p>
+                <p>HAXBRASOFT ©</p>
             </footer>
         </div>
     </h:body>
 
-   <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+
 </html>
 
