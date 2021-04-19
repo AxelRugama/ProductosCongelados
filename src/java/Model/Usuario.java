@@ -13,16 +13,20 @@ public class Usuario {
     String ident;
     String nombre;
     String apellido;
+    String correo;
+    String telefono;
     String pass;
     String rol_s;
     String estado_s;
     int rol;
     int estado;
 
-    public Usuario(String ident, String nombre, String apellido, String pass, int rol, int estado) {
+    public Usuario(String ident, String nombre, String apellido,String correo, String telefono, String pass, int rol, int estado) {
         this.ident = ident;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo = correo;
+        this.telefono = telefono;
         this.pass = pass;
         this.rol = rol;
         this.estado = estado;
@@ -31,18 +35,22 @@ public class Usuario {
     public Usuario() {
     }
     
-    public Usuario(String ident, String nombre, String apellido, String rol_s, String estado_s) {
+    public Usuario(String ident, String nombre, String apellido, String correo, String telefono, String rol_s, String estado_s) {
         this.ident = ident;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo = correo;
+        this.telefono = telefono;
         this.rol_s = rol_s;
         this.estado_s = estado_s;
     }
 
-    public Usuario(String ident, String nombre, String apellido, String estado_s) {
+    public Usuario(String ident, String nombre, String apellido, String correo, String telefono, String estado_s) {
         this.ident = ident;
         this.nombre = nombre;
         this.apellido = apellido;
+         this.correo = correo;
+        this.telefono = telefono;
         this.estado_s = estado_s;
     }
 
@@ -80,6 +88,22 @@ public class Usuario {
     
     public String getIdent() {
         return ident;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public void setIdent(String ident) {

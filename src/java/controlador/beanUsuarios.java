@@ -29,6 +29,8 @@ public class beanUsuarios implements Serializable {
     String ident;
     String nombre;
     String apellido;
+    String correo;
+    String telefono;
     String pass;
     String pass2;
     String error;
@@ -53,10 +55,10 @@ public class beanUsuarios implements Serializable {
     public void insertarUsuario() throws SNMPExceptions, SQLException, NamingException, ClassNotFoundException, IOException {
         rol = 3;
         estado = 2;
-        Usuario u = new Usuario(ident, nombre, apellido, pass, rol, estado);
+        Usuario u = new Usuario(ident, nombre, apellido, correo, telefono, pass, rol, estado);
         UsuarioDB usuarioDB = new UsuarioDB();
         if (this.ident.equals("") || this.nombre.equals("") || this.apellido.equals("")
-                || this.pass.equals("") || this.pass2.equals("")) {
+                || this.pass.equals("") || this.pass2.equals("") || this.correo.equals("")|| this.telefono.equals("")) {
             this.setMensaje("Debe completar los campos.");
             return;
         }
@@ -96,6 +98,8 @@ public class beanUsuarios implements Serializable {
         this.setIdent("");
         this.setNombre("");
         this.setApellido("");
+        this.setCorreo("");
+        this.setTelefono("");
         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     }
 
@@ -106,6 +110,8 @@ public class beanUsuarios implements Serializable {
         this.setIdent("");
         this.setNombre("");
         this.setApellido("");
+        this.setCorreo("");
+        this.setTelefono("");
         FacesContext.getCurrentInstance().getExternalContext().redirect("mantClientes.xhtml");
     }
 
@@ -116,6 +122,8 @@ public class beanUsuarios implements Serializable {
         this.setIdent("");
         this.setNombre("");
         this.setApellido("");
+        this.setCorreo("");
+        this.setTelefono("");
         FacesContext.getCurrentInstance().getExternalContext().redirect("mantUsuarios.xhtml");
     }
 
@@ -147,7 +155,7 @@ public class beanUsuarios implements Serializable {
     }
 
     public void modificarCliente(Usuario u) throws SNMPExceptions, SQLException, IOException {
-        if (u.getNombre().equals("") || u.getApellido().equals("") || u.getEstado_s().equals("")) {
+        if (u.getNombre().equals("") || u.getApellido().equals("") || u.getEstado_s().equals("") || u.getCorreo().equals("") || u.getTelefono().equals("")) {
             this.setError("Debe completar los Datos");
         } else {
             UsuarioDB usuarioDB = new UsuarioDB();
@@ -177,7 +185,7 @@ public class beanUsuarios implements Serializable {
     public void modificarUsuario(Usuario u) throws SNMPExceptions, SQLException, IOException {
 
         if (u.getNombre().equals("") || u.getApellido().equals("")
-                || u.getEstado_s().equals("")) {
+                || u.getEstado_s().equals("") || u.getCorreo().equals("") || u.getTelefono().equals("")) {
             this.setError2("Debe completar los Datos");
         } else {
             UsuarioDB usuarioDB = new UsuarioDB();
@@ -198,7 +206,7 @@ public class beanUsuarios implements Serializable {
     public void modificarConfi(Usuario uConfi) throws SNMPExceptions, SQLException, IOException {
         UsuarioDB usuarioDB = new UsuarioDB();
 /*abre*/if(cambiar == 1){
-        if (uConfi.getNombre().equals("") || uConfi.getApellido().equals("") || uConfi.getPass().equals("") || passActual.equals("")) {
+        if (uConfi.getNombre().equals("") || uConfi.getApellido().equals("") || uConfi.getCorreo().equals("") || uConfi.getTelefono().equals("") || uConfi.getPass().equals("") || passActual.equals("")) {
             this.setMensajeConfi("Debe completar los Datos");
             return;
         } else {
@@ -211,7 +219,7 @@ public class beanUsuarios implements Serializable {
         this.setMensajeConfi("Modificacion Exitosa!");
         
   /*Cierra*/}else{
-            if (uConfi.getNombre().equals("") || uConfi.getApellido().equals("") || passActual.equals("")) {
+            if (uConfi.getNombre().equals("") || uConfi.getApellido().equals("") || uConfi.getCorreo().equals("") || uConfi.getTelefono().equals("") || passActual.equals("")) {
             this.setMensajeConfi("Debe completar los Datos");
             return;
         }else {
@@ -268,11 +276,11 @@ public class beanUsuarios implements Serializable {
     public void agregarCliente() throws SNMPExceptions, SQLException, NamingException, ClassNotFoundException, IOException {
         rol = 3;
         estado = 2;
-        Usuario u = new Usuario(ident, nombre, apellido, pass, rol, estado);
+        Usuario u = new Usuario(ident, nombre, apellido, correo, telefono, pass, rol, estado);
         UsuarioDB usuarioDB = new UsuarioDB();
 
         if (this.ident.equals("") || this.nombre.equals("") || this.apellido.equals("")
-                || this.pass.equals("") || this.pass2.equals("")) {
+                || this.pass.equals("") || this.pass2.equals("") || this.correo.equals("") || this.telefono.equals("")) {
             this.setMensajeC("Debe completar los campos.");
 
         } else {
@@ -308,11 +316,11 @@ public class beanUsuarios implements Serializable {
     public void agregarUsuario() throws SNMPExceptions, SQLException, NamingException, ClassNotFoundException, IOException {
         rol = 1;
         estado = 1;
-        Usuario u = new Usuario(ident, nombre, apellido, pass, rol, estado);
+        Usuario u = new Usuario(ident, nombre, apellido, correo, telefono, pass, rol, estado);
         UsuarioDB usuarioDB = new UsuarioDB();
 
         if (this.ident.equals("") || this.nombre.equals("") || this.apellido.equals("")
-                || this.pass.equals("") || this.pass2.equals("")) {
+                || this.pass.equals("") || this.pass2.equals("") || this.correo.equals("") || this.telefono.equals("") ){
             this.setMensajeU("Debe completar los campos.");
 
         } else {
@@ -340,6 +348,8 @@ public class beanUsuarios implements Serializable {
                 this.setIdent("");
                 this.setNombre("");
                 this.setApellido("");
+                this.setCorreo("");
+                this.setTelefono("");
                 FacesContext.getCurrentInstance().getExternalContext().redirect("mantUsuarios.xhtml");
             }
         }
@@ -462,6 +472,22 @@ public class beanUsuarios implements Serializable {
 
     public String getPass2() {
         return pass2;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public void setPass2(String pass2) {

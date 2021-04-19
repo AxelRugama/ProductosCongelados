@@ -22,6 +22,8 @@ public class UsuarioDB {
     
     String nombre;
     String apellido;
+    String correo;
+    String telefono;
     String id;
     int rol;
     
@@ -50,6 +52,8 @@ public class UsuarioDB {
                 existe=true;
                 nombre = rsPA.getString("nombre");
                 apellido = rsPA.getString("apellido");
+                correo = rsPA.getString("correo");
+                telefono = rsPA.getString("telefono");
                 id= rsPA.getString("identificacion");
                 rol = rsPA.getInt("rol");
             }
@@ -83,6 +87,8 @@ public class UsuarioDB {
                 existe=true;
                 nombre = rsPA.getString("nombre");
                 apellido = rsPA.getString("apellido");
+                correo = rsPA.getString("correo");
+                telefono = rsPA.getString("telefono");
                 id= rsPA.getString("identificacion");
                 rol = rsPA.getInt("rol");
             }
@@ -110,6 +116,8 @@ public class UsuarioDB {
          + "(" + "'" + usuario.ident + "'" + "," 
                + "'"+ usuario.nombre +"'"+ ","
                + "'"+ usuario.apellido +"'" + ","
+               + "'"+ usuario.correo +"'" + ","
+               + "'"+ usuario.telefono +"'" + ","
                + "ENCRYPTBYPASSPHRASE('password',"+ "'" + usuario.pass +"')"+ ","
                +  usuario.rol + ","
                +  usuario.estado  + ")";
@@ -130,7 +138,7 @@ public class UsuarioDB {
             AccesoDatos accesoDatos= new AccesoDatos();
             //Se crea la sentencia de Busqueda
             select=
-                    "SELECT identificacion, nombre, apellido, rol, estado from usuario where rol= 1 or rol=2";
+                    "SELECT identificacion, nombre, apellido, correo, telefono, rol, estado from usuario where rol= 1 or rol=2";
             //se ejecuta la sentencia sql
             ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
@@ -142,6 +150,9 @@ public class UsuarioDB {
                 
                 String apellido = rsPA.getString("apellido");
                 
+                String correo = rsPA.getString("correo");
+                
+                String telefono = rsPA.getString("telefono");
                 int rol= rsPA.getInt("rol");
                 String rol_s;
                 if(rol == 1){
@@ -159,7 +170,7 @@ public class UsuarioDB {
                 }
                 
                 //se construye el objeto.
-                Usuario nuevoUsuario= new Usuario(ident, nombre, apellido, rol_s, estado_s);
+                Usuario nuevoUsuario= new Usuario(ident, nombre, apellido, correo, telefono, rol_s, estado_s);
                 
                 listaUsuarios.add(nuevoUsuario);
             }
@@ -185,7 +196,7 @@ public class UsuarioDB {
             AccesoDatos accesoDatos= new AccesoDatos();
             //Se crea la sentencia de Busqueda
             select=
-                    "SELECT identificacion, nombre, apellido, rol, estado from usuario where rol= 3";
+                    "SELECT identificacion, nombre, apellido, correo, telefono, rol, estado from usuario where rol= 3";
             //se ejecuta la sentencia sql
             ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
@@ -195,7 +206,9 @@ public class UsuarioDB {
                 
                 String nombre = rsPA.getString("nombre");
                 
-                String apellido = rsPA.getString("apellido");
+                String correo = rsPA.getString("correo");
+                
+                String telefono = rsPA.getString("telefono");
                 
                 int rol= rsPA.getInt("rol");
                 String rol_s = "Cliente";
@@ -209,7 +222,7 @@ public class UsuarioDB {
                 }
                 
                 //se construye el objeto.
-                Usuario nuevoUsuario= new Usuario(ident, nombre, apellido, rol_s, estado_s);
+                Usuario nuevoUsuario= new Usuario(ident, nombre, apellido, correo, telefono, rol_s, estado_s);
                 
                 listaUsuarios.add(nuevoUsuario);
             }
@@ -233,7 +246,7 @@ public class UsuarioDB {
              
             AccesoDatos accesoDatos= new AccesoDatos();
             //Se crea la sentencia de Busqueda
-            select= "SELECT identificacion, nombre, apellido, estado from usuario where identificacion=" + "'" + identificacion + "'";
+            select= "SELECT identificacion, nombre, apellido, correo, telefono, estado from usuario where identificacion=" + "'" + identificacion + "'";
             //se ejecuta la sentencia sql
             ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
@@ -245,6 +258,10 @@ public class UsuarioDB {
                 
                 String apellidoC = rsPA.getString("apellido");
                 
+                String correoC = rsPA.getString("correo");
+                
+                String telefonoC = rsPA.getString("telefono");
+                
                 int estado = rsPA.getInt("estado");
                 String estado_s;
                 if(estado == 1){
@@ -254,7 +271,7 @@ public class UsuarioDB {
                 }
                 
                 //se construye el objeto.
-                usuario = new Usuario(ident, nombreC, apellidoC, estado_s);
+                usuario = new Usuario(ident, nombreC, apellidoC, correoC, telefonoC, estado_s);
                 
                 
             }
@@ -289,6 +306,8 @@ public class UsuarioDB {
        
        update = "update usuario set nombre=" + "'" + u.nombre + "'" + "where identificacion=" + "'" + u.ident + "'" +
                 "update usuario set apellido=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
+                "update usuario set correo=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
+                "update usuario set telefono=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
                 "update usuario set estado=" + estado + "where identificacion=" + "'" + u.ident + "'";
        
        accesoDatos.ejecutaSQL(update);
@@ -331,7 +350,7 @@ public class UsuarioDB {
              
             AccesoDatos accesoDatos= new AccesoDatos();
             //Se crea la sentencia de Busqueda
-            select= "SELECT identificacion, nombre, apellido, estado from usuario where identificacion=" + "'" + identificacion + "'";
+            select= "SELECT identificacion, nombre, apellido, correo, telefono, estado from usuario where identificacion=" + "'" + identificacion + "'";
             //se ejecuta la sentencia sql
             ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
@@ -343,6 +362,10 @@ public class UsuarioDB {
                 
                 String apellidoC = rsPA.getString("apellido");
                 
+                String correoC = rsPA.getString("correo");
+                
+                String telefonoC = rsPA.getString("telefono");
+                
                 int estado = rsPA.getInt("estado");
                 String estado_s;
                 if(estado == 1){
@@ -352,7 +375,7 @@ public class UsuarioDB {
                 }
                 
                 //se construye el objeto.
-                usuario = new Usuario(ident, nombreC, apellidoC, estado_s);
+                usuario = new Usuario(ident, nombreC, apellidoC, correoC, telefonoC, estado_s);
                 
                 
             }
@@ -387,6 +410,8 @@ public class UsuarioDB {
        
        update = "update usuario set nombre=" + "'" + u.nombre + "'" + "where identificacion=" + "'" + u.ident + "'" +
                 "update usuario set apellido=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
+                "update usuario set correo=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
+                "update usuario set telefono=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
                 "update usuario set estado=" + estado + "where identificacion=" + "'" + u.ident + "'";
        
        accesoDatos.ejecutaSQL(update);
@@ -415,6 +440,8 @@ public class UsuarioDB {
        
        update = "update usuario set nombre=" + "'" + u.nombre + "'" + "where identificacion=" + "'" + u.ident + "'" +
                 "update usuario set apellido=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
+                "update usuario set correo=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
+                "update usuario set telefono=" + "'" + u.apellido + "'" + "where identificacion=" + "'" + u.ident + "'" +
                 "update usuario set contrasenna= ENCRYPTBYPASSPHRASE('password','"+ u.pass + "') where identificacion=" + "'" + u.ident + "'";
        
        accesoDatos.ejecutaSQL(update);
@@ -481,6 +508,22 @@ public class UsuarioDB {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
    
