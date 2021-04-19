@@ -28,9 +28,6 @@ public class beanDirecciones implements Serializable {
 
         String idUsuario;
         String direccion;
-        String canton;
-        String distrito;
-        String barrio;
         int idDireccion;
         int estado;
         int idDirecInactiva;
@@ -100,7 +97,7 @@ public class beanDirecciones implements Serializable {
                  }
              }
          estado = 1;
-         Direcciones direc = new Direcciones(id, direccion, canton, distrito, barrio, estado);
+         Direcciones direc = new Direcciones(id, direccion, estado);
          
          DireccionesDB direcDB = new DireccionesDB();
          direcDB.AgregarDireccion(direc);
@@ -216,29 +213,6 @@ public class beanDirecciones implements Serializable {
         this.direcObject = direcObject;
     }
 
-    public String getCanton() {
-        return canton;
-    }
-
-    public void setCanton(String canton) {
-        this.canton = canton;
-    }
-
-    public String getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
-    }
-
-    public String getBarrio() {
-        return barrio;
-    }
-
-    public void setBarrio(String barrio) {
-        this.barrio = barrio;
-    }
     
     
 }
