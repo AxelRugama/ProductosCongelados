@@ -8,20 +8,29 @@ package Model;
 public class Direcciones {
     String idUsuario;
     String direccion;
+    String canton;
+    String distrito;
+    String barrio;
     int idDireccion;
     
     int estado;
 
-    public Direcciones(String idUsuario, String direccion, int idDireccion, int estado) {
+    public Direcciones(String idUsuario, String direccion, String canton, String distrito, String barrio, int idDireccion, int estado) {
         this.idUsuario = idUsuario;
         this.direccion = direccion;
+        this.canton = canton;
+        this.distrito = distrito;
+        this.barrio = barrio;
         this.idDireccion = idDireccion;
         this.estado = estado;
     }
 
-    public Direcciones(String idUsuario, String direccion, int estado) {
+    public Direcciones(String idUsuario, String direccion,  String canton, String distrito, String barrio, int estado) {
         this.idUsuario = idUsuario;
         this.direccion = direccion;
+        this.canton = canton;
+        this.distrito = distrito;
+        this.barrio = barrio;
         this.estado = estado;
     }
 
@@ -58,6 +67,30 @@ public class Direcciones {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public String getCanton() {
+        return canton;
+    }
+
+    public void setCanton(String canton) {
+        this.canton = canton;
+    }
+
+    public String getDistrito() {
+        return distrito;
+    }
+
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
     }
     
     

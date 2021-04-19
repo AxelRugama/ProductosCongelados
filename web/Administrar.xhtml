@@ -66,11 +66,18 @@
                         <h:outputText value="Direccion: "/>
                         <h:inputText class="inputTodos" value="#{beanDirecciones.direcObject.direccion}"/>
 
+                        <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanDirecciones.GuardarCambios}"/>
+                        <br></br>
+                        <br></br> 
+                        <h5>Agregar Nueva Direccion</h5>
+                        <h:outputText value="Direccion Exacta: "/>
+                        <h:inputText class="inputTodos" value="#{beanDirecciones.direccion}"/>
+                        
                         <br></br>
 
                         <td>Provincias:</td>
                         <td>
-                            <h:selectOneMenu label="pro" value="#{beanProvincias.cod_provincia}" id="pro">
+                            <h:selectOneMenu label="pro" value="#{beanProvincias.cod_provincia}"  id="pro">
                                 <f:selectItems value="#{beanProvincias.listaPro}"/>
                                 <f:ajax event="change" listener="#{beanProvincias.getListaCan()}" render="can" execute="@this"/>
                                 <f:ajax event="change" listener="#{beanProvincias.getListaDis()}" render="dis" execute="@this"/>
@@ -116,25 +123,11 @@
                             </td>
                         </tr>
 
-
-
-
-
-                        <h:commandButton class="buttonAdmin" value="Guardar Cambios" action="#{beanDirecciones.GuardarCambios}"/>
-                        <br></br>
-                        <br></br> 
-                        <h5>Agregar Nueva Direccion</h5>
-                        <h:outputText value="Direccion Exacta: "/>
-                        <h:inputText class="inputTodos" value="#{beanDirecciones.direccion}"/>
+                        
                         <h:commandButton class="buttonAdmin" value="Agregar" action="#{beanDirecciones.agregarDireccion(beanLogin.id)}"/>
+                                         
                         <br></br>
                         <br></br> 
-                        <h5>Activar Direcciones</h5>
-                        <h:outputText value="Direcciones Inactivas: "/>
-                        <h:selectOneMenu class="inputTodos" value="#{beanDirecciones.idDirecInactiva}">
-                            <f:selectItems value="#{beanDirecciones.ListaDireccionesI(beanLogin.id)}" />
-                        </h:selectOneMenu>
-                        <h:commandButton class="buttonAdmin" value="Activar" action="#{beanDirecciones.ActivarDireccion}"></h:commandButton>
                     </h:form>    
                 </div>
 

@@ -44,12 +44,18 @@ public class DireccionesDB {
                 
                 String direccion = rsPA.getString("direccion");
                 
+                String canton = rsPA.getString("canton");
+                
+                String distrito = rsPA.getString("distrito");
+                
+                String barrio = rsPA.getString("barrio");
+                
                 int idDireccion = rsPA.getInt("idDireccion");
                 
                 int estado = rsPA.getInt("estado");
                 
                 //se construye el objeto.
-                Direcciones direcciones = new Direcciones(idUsuario, direccion,idDireccion, estado);
+                Direcciones direcciones = new Direcciones(idUsuario, direccion, canton, distrito, barrio,idDireccion, estado);
                 
                 listaDirecciones.add(direcciones);
             }
@@ -84,12 +90,18 @@ public class DireccionesDB {
                 
                 String direccion = rsPA.getString("direccion");
                 
+                String canton = rsPA.getString("canton");
+                
+                String distrito = rsPA.getString("distrito");
+                
+                String barrio = rsPA.getString("barrio");
+                
                 int idDireccion = rsPA.getInt("idDireccion");
                 
                 int estado = rsPA.getInt("estado");
                 
                 //se construye el objeto.
-                Direcciones direcciones = new Direcciones(idUsuario, direccion,idDireccion, estado);
+                Direcciones direcciones = new Direcciones(idUsuario, direccion, canton, distrito, barrio, idDireccion, estado);
                 
                 listaDirecciones.add(direcciones);
             }
@@ -153,7 +165,7 @@ public class DireccionesDB {
      public void AgregarDireccion(Direcciones direccion) throws SNMPExceptions{
          String insert = "";
          try{
-             insert = "insert into direccionEntregaUsuario (idUsuario, direccion, estado) values ('" + direccion.idUsuario + "'," 
+             insert = "insert into direccionEntregaUsuario (idUsuario, direccion, canton, distrito, barrio, estado) values ('" + direccion.idUsuario + "'," 
                      +"'" + direccion.direccion + "'," + direccion.estado +")";
              
              accesoDatos.ejecutaSQL(insert);
@@ -178,12 +190,18 @@ public class DireccionesDB {
                 
                 String direccion = rsPA.getString("direccion");
                 
+                String canton = rsPA.getString("canton");
+                
+                String distrito = rsPA.getString("distrito");
+                
+                String barrio = rsPA.getString("barrio");
+                
                 int idDireccion1 = rsPA.getInt("idDireccion");
                 
                 int estado = rsPA.getInt("estado");
                 
                 //se construye el objeto.
-                direc = new Direcciones(idUsuario, direccion,idDireccion1, estado);   
+                direc = new Direcciones(idUsuario, direccion,canton, distrito, barrio, idDireccion1, estado);   
             }
             rsPA.close();//se cierra el ResultSeat.
             
