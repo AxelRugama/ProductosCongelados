@@ -42,7 +42,7 @@ public class CantonDB {
             AccesoDatos accesoDatos = new AccesoDatos();
 
             strSQL = "SELECT COD_PROVINCIA,COD_CANTON,DSC_CANTON,LOG_ACTIVO\n " +
-                     "FROM CANTONES\n " +
+                     "FROM CANTON\n " +
                      "WHERE LOG_ACTIVO=1 AND COD_PROVINCIA=" + codigoProv +";";
  
             //Se ejecuta la sentencia SQL

@@ -43,7 +43,7 @@ public class DistritoDB {
             AccesoDatos accesoDatos = new AccesoDatos();
 
             strSQL = "SELECT COD_PROVINCIA,COD_CANTON,COD_DISTRITO,DSC_DISTRITO,LOG_ACTIVO "
-                    + "FROM DISTRITOS "
+                    + "FROM DISTRITO "
                     + "WHERE LOG_ACTIVO=1 AND COD_PROVINCIA="+ codigoProv
                     + " AND COD_CANTON=" + codigoCanton  + ";";
                     

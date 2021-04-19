@@ -8,11 +8,15 @@
 
 #background {
     background-color: #913231;
-    background-image: url(img/dark-wood-brown-texture-wooden-floor-773414-wallhere.com.jpg);
+    background-image: url(img/frutas5.jpg);
+    background-size: 100%;
+  
+    
     font-family: sunday;
 }
 #mainContainer {
-    background-color: rgb(197, 114, 31);
+    background-color: rgb(217, 167, 199);
+    opacity: .85;
     border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -22,7 +26,8 @@
     box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.66)
 }
 #pageContent {
-    background-color: #FFB627;
+    background-color: #27FFEA;
+    
     margin: auto;
 }
 #divProducto{
@@ -30,7 +35,8 @@
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgba(255, 202, 95, 0.514);
+    background-color: rgba(130, 132, 209, 0.514);
+    opacity: .85;
     border-radius: 10px;
     transition: box-shadow .3s;
 }
@@ -67,21 +73,21 @@
 
 /*-------------------------------------Nav------------------------------------------- */
 #navbar {
-    background-color: #6d1716;
+    background-color: #313BEF;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-family: sunday;
     font-size: 20px;
 }
 #navbar a {
-    color: #bb3535;  
+    color: #BBB935;  
 }
 #navbar .dropdown-menu{
-    background-color: #6d1716;
+    background-color: #D0F5B4;
 }
 #navbar .dropdown-menu :hover{
     color: white;
-    background-color: #6d1716;
+    background-color: #D0F5B4;
 }
 #navbar :hover{
     color: white;
@@ -97,7 +103,7 @@
 
 /*-------------------------------------Footer------------------------------------------- */
 #footer{
-    background-color: #6d1716;
+    background-color: #7A7676;
     border-bottom-left-radius:10px;
     border-bottom-right-radius: 10px;
     font-family: sunday;
@@ -112,16 +118,18 @@
 
 /*-------------------------------------PageHeader------------------------------------------- */
 #pageHeader {
-    background-color: rgb(197, 114, 31);
+    background-color: rgb(255, 255, 255);
+    opacity: .6;
 }
 
 #pageHeaderAdmin {
-    background-color: rgb(197, 114, 31);
+    background-color: rgb(255, 255, 255);
+    opacity: .85;
 }
 
 #pageHeader img {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
 }
 /*-------------------------------------PageHeader------------------------------------------- */
 

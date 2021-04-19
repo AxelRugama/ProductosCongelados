@@ -49,7 +49,7 @@ public class beanPedidos implements Serializable {
     String fechaDB = format.format(fecha);
     double precioTotal;
     double descuento = 0.10;
-    double IVA = 0.13;
+    double IVA = 0.15;
     double descDB;
     double ivaDB;
     String tipoPago;
