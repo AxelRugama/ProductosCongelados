@@ -13,7 +13,7 @@
         <link rel="icon" href="img/LogoSipao.PNG"></link>
     </h:head>
     <h:body id="background">
-        <div id="mainContainer" class="container col-md-10">
+        <div id="mainContainer" class="container col-md-11">
            
             
             <div class="text-center" id="pageHeader">
@@ -76,7 +76,7 @@
             <div class="row col-md-12" id="pageContent">
                 <!--Aqui añadir los nuevos el contenido de la pagina-->
                 
-                <div class="col col-md-6" id="login">
+                <div class="col col-md-8" id="login">
                     
                
                 <h:form id="tabla-usuario"> 
@@ -99,9 +99,16 @@
                         
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="Apellidos"></h:outputText>
+                                <h:outputText value="Identificación"></h:outputText>
                             </f:facet>
-                            <h:outputText value="#{usuario.apellido}"></h:outputText>
+                            <h:outputText value="#{usuario.telefono}"></h:outputText>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Telefono"></h:outputText>
+                            </f:facet>
+                            <h:outputText value="#{usuario.correo}"></h:outputText>
                         </h:column>
                         
                         <h:column>
@@ -123,7 +130,7 @@
                     
                 </h:form>
                 </div>
-                <div class="col-md-6 col" id="login">
+                <div class="col-md-4 col" id="login">
                         <h:form>
                         <h:outputText value="Correo Usuario"></h:outputText>
                         <h:inputText class="inputTodos" value="#{beanUsuarios.ident2}"></h:inputText>
